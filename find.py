@@ -1,4 +1,4 @@
-# find.py - A simple tool to find common strings from different text files
+# find.py - A small python utility for comparing strings of multiple files located in single folder.
 # Created by Neerad Vaidya on 9th Feb, 2018 15:58:15 IST
 # Distributed under GNU GPLv3 Licence
 import os, timeit,ctypes,sys,datetime
