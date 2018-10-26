@@ -28,7 +28,7 @@ lent=len(fl)
 print "File listing & indexing Complete"
 
 
-for a in range(0,lent):
+for a in range(0,lent-1):
 		#starting a+1 to avoid regoing through same files with different combo b,a / a,b 
 		for b in range(a+1,lent):
 			if a==b:
