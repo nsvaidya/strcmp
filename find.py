@@ -18,10 +18,9 @@ print "File listing & indexing Complete"
 for a in range(0,lent):
 		for b in range(1,lent):
 			if a==b:
-				print "Same File, Can't Compare"
+				print "Warning!! Delete the duplicate files to avoid confusion"
 				continue
-			else:
-				if (a,b) not in chkfl and (b,a) not in chkfl:
+			elif (a,b) not in chkfl and (b,a) not in chkfl:
 					print "Analyzing File: " + fl[a] + " with " + fl[b]
 					filhan1=open(fl[a],"r")
 					filhan2=open(fl[b],"r")
