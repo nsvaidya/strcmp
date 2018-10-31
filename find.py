@@ -12,7 +12,7 @@ chkfl=list()
 for root, dirs, files in os.walk(os.getcwd()):
 	for names in files:
 		if names.rfind(".txt") > 0:
-			fl.append(names)			
+			fl+=[names]			
 lent=len(fl)
 print "File listing & indexing Complete"
 for a in range(0,lent):
@@ -27,37 +27,37 @@ for a in range(0,lent):
 					lst1=list()
 					lst2=list()
 					for line in filhan1:
-						lst1.append(line)
+						lst1+=[line]
 					for line in filhan2:
-						lst2.append(line)
+						lst2+=[line]
 					filhan1.close()
 					filhan2.close()
 					if len(lst1) >= len(lst2):
 						for items in lst1:
 							if items in lst2:
 								if items not in simstri:
-									print "Match Found"
-									simstri.append(items)
+									print("Match Found")
+									simstri+=[items]
 								else:
-									print "Duplicate Match Found"
+									print("Duplicate Match Found")
 									continue
-						chkfl.append((a,b))
-						chkfl.append((b,a))
+						chkfl+=[(a,b)]
+						chkfl+=[(b,a)]
 					elif len(lst1) <= len(lst2):
 						for items in lst2:
 							if items in lst1:
 								if items not in simstri:
-									print "Match Found"
-									simstri.append(items)
+									print("Match Found")
+									simstri+=[items]
 								else:
-									print "Duplicate Match Found"
+									print("Duplicate Match Found")
 									continue
-						chkfl.append((a,b))
-						chkfl.append((b,a))
+						chkfl+=[(a,b)]
+						chkfl+=[(b,a)]
 					else:
-						print "Unspecified Error"
+						print("Unspecified Error")
 				else:
-					print "Files " + fl[a] + " with " + fl[b] + " are already checked"
+					print("Files " + fl[a] + " with " + fl[b] + " are already checked")
 fhand=open("result.txt","w")
 for items in simstri:
 	fhand.write(items)
