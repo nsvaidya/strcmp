@@ -22,8 +22,8 @@ chkfl=list()
 for root, dirs, files in os.walk(os.getcwd()):
 	for names in files:
 		if names.rfind(".txt") > 0:
-			fl.append(names)			
-# grabbing fl list length 
+      # grabbing fl list length 
+			fl+=[names]
 lent=len(fl)
 print "File listing & indexing Complete"
 
@@ -32,10 +32,9 @@ for a in range(0,lent-1):
 		#starting a+1 to avoid regoing through same files with different combo b,a / a,b 
 		for b in range(a+1,lent):
 			if a==b:
-				print "Same File, Can't Compare"
+				print "Warning!! Delete the duplicate files to avoid confusion"
 				continue
-			else:
-				if (a,b) not in chkfl and (b,a) not in chkfl:
+			elif (a,b) not in chkfl and (b,a) not in chkfl:
 					print "Analyzing File: " + fl[a] + " with " + fl[b]
 					# opening files in read mode
 					filhan1=open(fl[a],"r")
@@ -45,10 +44,9 @@ for a in range(0,lent-1):
 					lst2=list()
 					# filling content of the file withing declared lists
 					for line in filhan1:
-						lst1.append(line)
+						lst1+=[line]
 					for line in filhan2:
-						lst2.append(line)
-					# closing files
+						lst2+=[line]
 					filhan1.close()
 					filhan2.close()
 
@@ -58,30 +56,30 @@ for a in range(0,lent-1):
 						for items in lst1:
 							if items in lst2:
 								if items not in simstri:
-									print "Match Found"
-									simstri.append(items)
+									print("Match Found")
+									simstri+=[items]
 								else:
-									print "Duplicate Match Found"
+									print("Duplicate Match Found")
 									continue
 						# appending file combo to checked file list
-						chkfl.append((a,b))
-						chkfl.append((b,a))
+						chkfl+=[(a,b)]
+						chkfl+=[(b,a)]
 					elif len(lst1) <= len(lst2):
 						for items in lst2:
 							if items in lst1:
 								if items not in simstri:
-									print "Match Found"
-									simstri.append(items)
+									print("Match Found")
+									simstri+=[items]
 								else:
-									print "Duplicate Match Found"
+									print("Duplicate Match Found")
 									continue
-						chkfl.append((a,b))
-						chkfl.append((b,a))
+						chkfl+=[(a,b)]
+						chkfl+=[(b,a)]
 					else:
-						print "Unspecified Error"
+						print("Unspecified Error")
 				else:
-					print "Files " + fl[a] + " with " + fl[b] + " are already checked"
-# creating result.txt file with matches from simstri list
+          # creating result.txt file with matches from simstri list
+					print("Files " + fl[a] + " with " + fl[b] + " are already checked")
 fhand=open("result.txt","w")
 for items in simstri:
 	fhand.write(items)
