@@ -93,4 +93,3 @@ h, m = divmod(m, 60)
 
 print "Script ended @ ", datetime.datetime.now()
 print "Total Elapsed Time: %d:%02d:%02d" % (h, m, s)
- 
