@@ -77,9 +77,9 @@ for a in range(0,lent-1):
 						chkfl+=[(b,a)]
 					else:
 						print("Unspecified Error")
-				else:
+			else:
           # creating result.txt file with matches from simstri list
-					print("Files " + fl[a] + " with " + fl[b] + " are already checked")
+				print("Files " + fl[a] + " with " + fl[b] + " are already checked")
 fhand=open("result.txt","w")
 for items in simstri:
 	fhand.write(items)
